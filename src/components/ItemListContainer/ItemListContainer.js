@@ -7,16 +7,8 @@ const h2Styles = {
 
  };
 
-function ItemListContainer(greeting){
-  return (
-    <>
+export const ItemListContainer = ({ title }) => {
+  return <h2 style={h2Styles}>{title}</h2>
 
-      <h2 style={h2Styles}>{greeting.title}</h2>
-
-    </>
-
-
-  )
 }
 
-export default ItemListContainer;
