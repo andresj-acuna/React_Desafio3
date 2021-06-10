@@ -1,38 +1,212 @@
-.App {
+/* .App {
   text-align: center;
+} */
+
+@font-face {
+  font-family: Gilroy-bold;
+  src: url(./assets/fonts/gilroy-fonts/Gilroy-Bold.ttf);
+  font-weight: normal;
+  font-style: normal;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face {
+   font-family: Gilroy-heavy;
+  src: url(./assets/fonts/gilroy-fonts/Gilroy-Heavy.ttf);
+  font-weight: normal;
+  font-style: normal;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@font-face {
+   font-family: Gilroy-light;
+  src: url(./assets/fonts/gilroy-fonts/Gilroy-Light.ttf);
+  font-weight: normal;
+  font-style: normal;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@font-face {
+   font-family: Gilroy-medium;
+  src: url(./assets/fonts/gilroy-fonts/Gilroy-Medium.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+   font-family: Gilroy-regular;
+  src: url(./assets/fonts/gilroy-fonts/Gilroy-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+    overflow-x: hidden;
+    /* font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif; */
+}
+
+a,
+a:hover,
+a:focus,
+a:active,
+a.active {
+    outline: 0;
+}
+
+a {
+    color: #1ee2e7;
+}
+
+a:hover,
+a:focus,
+a:active,
+a.active {
+    color: #17d0d5;
+}
+
+/* .flex {
   display: flex;
-  flex-direction: column;
+}
+
+.justify-between {
+  justify-content: space-between;
+} */
+
+/* .header-content {
+  max-height: 200px;
+} */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  border-color: transparent;
+  background-color: #222;
+  /* max-height: 300px; */
+
+}
+
+.navbar .navbar-header {
+   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+}
+
+.navbar-header, .menu {
+  height: 100px;
+}
+
+.navbar .navbar-brand {
+  font-family: Gilroy-bold;
+  color: #1ee2e7;
+  font-size: 2.2em;
+    margin-left: 60px;
+   -webkit-transition: all .9s;
+  -moz-transition: all .9s;
+  transition: all .9s;
+
+
+}
+
+/* .navbar-default {
+    border-color: transparent;
+    background-color: #222;
+} */
+
+.navbar .navbar-brand {
+    font-family: Gilroy-bold,"Helvetica Neue",Helvetica,Arial,cursive;
+    color: #1ee2e7;
+}
+
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus,
+.navbar .navbar-brand:active,
+.navbar .navbar-brand.active {
+    color: #fec503;
+   -webkit-transition: all 1.5s;
+  -moz-transition: all 1.5s;
+  transition: all 1.5s;
+
+}
+
+.navbar .navbar-collapse {
+    border-color: rgba(255,255,255,.02);
+}
+
+
+
+.navbar-default .navbar-toggle {
+    border-color: #1ee2e7;
+    background-color: #1ee2e7;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #1ee2e7;
+}
+
+  .menu{
+    /* margin-right: 80px; */
+      display: flex;
+      align-items: center;
+      border-right: 1px solid #A5A3A5;
+    }
+
+
+
+  .menu li {
+  list-style: none;
+
+
+}
+
+.menu li:last-child {
+  padding-right: 20px;
+}
+
+.menu li a {
+    text-transform: uppercase;
+    font-family: Gilroy-regular;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #fff;
+    padding: 10px 10px;
+    text-decoration: none;
+    -webkit-transition: all .8s;
+    -moz-transition: all .8s;
+    transition: all .8s;
+
+}
+
+.menu li a:hover,
+.menu li a:focus {
+    outline: 0;
+    /* color: #1ee2e7; */
+   background-color: #1ee2e7;
+   border-radius: 3px;
+
+
+   /* padding: 10px 10px; */
+}
+
+  .menu-carrito {
+    display: flex;
+    margin-right: 80px;
+  }
+
+  .carrito {
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    /* border: 1px solid red; */
+  }
+
+   .carrito .icon {
   color: white;
-}
+  font-size: 20px;
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  /* border: 1px solid red; */
+  /* padding-left: 20px; */
+
 }
