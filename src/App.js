@@ -1,22 +1,18 @@
-import React from 'react';
-import NavBar from './components/NavBar/NavBar';
-import {ItemListContainer} from './components/ItemListContainer/ItemListContainer';
+import React from "react";
+import NavBar from "./components/NavBar/NavBar";
+import { Home } from "./components/Home/Home";
 
-
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
     <>
-
       <NavBar />
-      <ItemListContainer title={'Mi título de ItemListContainer'}/>
-
+      <Home />
     </>
-
-  )
+  );
 }
 
-
-
 export default App;
+
+// title={"Mi título de ItemListContainer"}

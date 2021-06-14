@@ -1,0 +1,48 @@
+.contenedor {
+  margin-top: 100px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  font-size: 30px;
+}
+
+button {
+  width: 30px;
+  height: 30px;
+  margin: 20px !important;
+  border-radius: 200px;
+  border: none;
+  color: #fff;
+  background-color: #17a455;
+  outline: none;
+}
+
+button:hover {
+  background-color: rgba(23, 164, 85, 0.8);
+  cursor: pointer;
+}
+
+button:disabled {
+  color: #fff;
+  background-color: gray;
+  cursor: default;
+}
+
+.btn_Carrito {
+  width: 16%;
+  height: 40px;
+  font-weight: bold;
+  color: #000;
+  background-color: #fff;
+  border: 2px solid #000;
+}
+
+.btn_Carrito:hover {
+  background-color: rgba(245, 245, 245, 1);
+  transition: all 0.4s;
+}
