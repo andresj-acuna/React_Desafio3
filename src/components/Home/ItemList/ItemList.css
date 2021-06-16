@@ -1,0 +1,40 @@
+.ui.container{
+  display: flex !important;
+  height: 500px;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0;
+  height: 400px;
+
+}
+
+.ui.card {
+  margin: 30px !important;
+   cursor: pointer;
+}
+
+.ui.card .image {
+
+  height: 70% ;
+  background: #fff !important;
+  display: flex !important;
+}
+
+.ui.card .image img {
+  width: 80% !important;
+  margin: auto;
+}
+
+.ui.card .content {
+  height: 30%;
+}
+
+.description {
+  padding-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
