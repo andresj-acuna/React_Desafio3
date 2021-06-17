@@ -12,12 +12,12 @@ export const ItemCount = ({stock, initial, onAdd}) => {
    const delOneItem = (e) => {
      count > 1
        ? setCount(count - 1)
-       : btnDel = true;
+       : console.log("El stock debe ser mayor a 1");
       //  console.log(btnDel);
    }
 
   const addOneItem = (e) => {
-    count < stock ? setCount(count + 1) : btnAdd=true;
+    count < stock ? setCount(count + 1) : console.log("Ha superado el stock");
 
   }
 
