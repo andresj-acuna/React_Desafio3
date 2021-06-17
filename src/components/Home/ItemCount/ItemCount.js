@@ -1,46 +1,51 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import { Container } from "semantic-ui-react";
 import "./ItemCount.css";
 
-export const ItemCount = (props) => {
-  const [count, setCount] = useState(0);
+export const ItemCount = ({stock, initial, onAdd}) => {
+  const [count, setCount] = useState(1);
 
-  let botonActive1 = false;
-  let botonActive2 = false;
-  let stock = 6;
+
+  let btnDel = false;
+  let btnAdd = false;
+
+   const delOneItem = (e) => {
+     count > 1
+       ? setCount(count - 1)
+       : btnDel = true;
+      //  console.log(btnDel);
+   }
 
   const addOneItem = (e) => {
-    count < stock ? setCount(count + 1) : console.log("Ha superado el stock");
-  };
+    count < stock ? setCount(count + 1) : btnAdd=true;
+
+  }
+
+  if (count === 1) {
+    btnDel = true;
+  }
 
   if (count === stock) {
-    botonActive2 = true;
+    btnAdd = true;
   }
 
-  if (count === 0) {
-    botonActive1 = true;
-  }
-
-  const delOneItem = (e) => {
-    count > 0
-      ? setCount(count - 1)
-      : console.log("El stock debe ser mayor a 0");
-  };
 
   return (
-    <Container className="contenedor">
-      <p className="center">{count}</p>
-      <div className="center">
-        <button disabled={botonActive1} onClick={delOneItem}>
-          -
-        </button>
-        <button disabled={botonActive2} onClick={addOneItem}>
-          +
-        </button>
-      </div>
-      <div className="center">
-        <button className="btn_Carrito">AGREGAR AL CARRITO</button>
-      </div>
-    </Container>
+    <>
+      <Container>
+        <div className="center">
+          <button disabled={btnDel} onClick={delOneItem}>
+            -
+          </button>
+          <div>{count}</div>
+          <button disabled={btnAdd} onClick={addOneItem}>
+            +
+          </button>
+        </div>
+        <div className="center">
+          <button className="btn_Carrito" onClick={() => onAdd(initial)}>AGREGAR AL CARRITO</button>
+        </div>
+      </Container>
+    </>
   );
 };

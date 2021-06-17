@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {ItemCount} from "../ItemCount/ItemCount";
 import { Card, Image } from "semantic-ui-react";
 import { Loader, Container } from "semantic-ui-react";
 import "./ItemList.css"
@@ -45,6 +46,10 @@ const myPromise = () => {
 export const ItemList = () => {
   const [dataShow, setDataShow] = useState([]);
 
+   const onAdd = (cantidad) => {
+     console.log("Agregar al carrito", cantidad);
+   };
+
   const runItemList = () => {
     myPromise().then(setDataShow);
   };
@@ -62,6 +67,7 @@ export const ItemList = () => {
       ) :
 
       (
+        <>
         <div className="card">
           {dataShow.map((element, i) => (
             <Card key={i}>
@@ -72,8 +78,11 @@ export const ItemList = () => {
                 <Card.Description>$ {element.price}</Card.Description>
               </Card.Content>
             </Card>
+
           ))}
         </div>
+       <ItemCount stock={5} initial={1} onAdd={onAdd} />
+       </>
       )}
     </>
   );
