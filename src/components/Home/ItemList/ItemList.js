@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { ItemCount } from "../ItemCount/ItemCount";
-import { Card, Image } from "semantic-ui-react";
-import { Loader, Container, Button } from "semantic-ui-react";
-import { Link } from "react-router-dom";
+// import { ItemCount } from "../ItemCount/ItemCount";
+import { Loader, Container} from "semantic-ui-react";
 import "./ItemList.css";
+import {Item} from "./Item/Item";
 
 const myPromise = () => {
   return new Promise((resolve, reject) => {
@@ -47,9 +46,9 @@ const myPromise = () => {
 export const ItemList = () => {
   const [dataShow, setDataShow] = useState([]);
 
-  const onAdd = (cantidad) => {
-    console.log("Agregar al carrito", cantidad);
-  };
+  // const onAdd = (cantidad) => {
+  //   console.log("Agregar al carrito", cantidad);
+  // };
 
   const runItemList = () => {
     myPromise().then(setDataShow);
@@ -70,23 +69,9 @@ export const ItemList = () => {
       ) : (
         <>
           <div className="card">
-            {dataShow.map((element, i) => (
-              <Card key={i}>
-                <Image src={element.imageUrl} width="5" wrapped ui={false} />
-                <Card.Content>
-                  <Card.Header>{element.title}</Card.Header>
-
-                  <Card.Description>
-                    <p>$ {element.price}</p>
-                    <Button color="teal">
-                      <Link to={`/detalle/${element.id}`}>Detalles</Link>
-                    </Button>
-                  </Card.Description>
-                </Card.Content>
-              </Card>
-            ))}
+            <Item dataShow={dataShow}/>
           </div>
-          <ItemCount stock={5} initial={1} onAdd={onAdd} />
+          {/* <ItemCount stock={5} initial={1} onAdd={onAdd} /> */}
         </>
       )}
     </>
