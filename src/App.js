@@ -1,14 +1,28 @@
 import React from "react";
-import NavBar from "./components/NavBar/NavBar";
+import { NavBar } from "./components/NavBar/NavBar";
 import { Home } from "./components/Home/Home";
+
+import { ItemDetailContainer } from "./components/Home/ItemDetailContainer/ItemDetailContainer";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import "./App.css";
 
 function App() {
   return (
     <>
-      <NavBar />
-      <Home />
+      <BrowserRouter>
+        <NavBar />
+
+
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/detalle/:productID">
+            <ItemDetailContainer />
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </>
   );
 }

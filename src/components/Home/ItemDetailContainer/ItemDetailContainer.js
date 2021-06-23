@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { ItemCount } from "../ItemCount/ItemCount";
+import { useParams } from "react-router-dom";
+// import { ItemCount } from "../ItemCount/ItemCount";
 import { Card, Image } from "semantic-ui-react";
-import { Loader, Container, Button } from "semantic-ui-react";
-import { Link } from "react-router-dom";
-import "./ItemList.css";
+import { Loader, Container } from "semantic-ui-react";
+// import { Link } from "react-router-dom";
+// import "../../ItemList/ItemList.css";
 
 const myPromise = () => {
   return new Promise((resolve, reject) => {
@@ -44,49 +45,57 @@ const myPromise = () => {
   });
 };
 
-export const ItemList = () => {
+export const ItemDetailContainer = () => {
   const [dataShow, setDataShow] = useState([]);
+  const { productID } = useParams();
+  console.log(productID);
 
-  const onAdd = (cantidad) => {
-    console.log("Agregar al carrito", cantidad);
-  };
 
-  const runItemList = () => {
-    myPromise().then(setDataShow);
+  // const onAdd = (cantidad) => {
+  //   console.log("Agregar al carrito", cantidad);
+  // };
+
+  const runItemDetailContainer = () => {
+    myPromise().then((data) => {
+
+      const dataFilter = data.filter(element => element.id === productID);
+
+      setDataShow(dataFilter);
+      console.log(dataFilter);
+
+    });
   };
 
   useEffect(() => {
-    runItemList();
-  }, []);
+    runItemDetailContainer();
+  }, [productID]);
 
   return (
     <>
+
       {dataShow.length === 0 ? (
         <Container className="container-loader">
           <Loader active inline="centered" size="large">
-            Cargando
+            Cargando el producto
           </Loader>
         </Container>
       ) : (
         <>
           <div className="card">
-            {dataShow.map((element, i) => (
-              <Card key={i}>
+            {dataShow.map((element) => (
+              <Card>
                 <Image src={element.imageUrl} width="5" wrapped ui={false} />
                 <Card.Content>
                   <Card.Header>{element.title}</Card.Header>
 
                   <Card.Description>
                     <p>$ {element.price}</p>
-                    <Button color="teal">
-                      <Link to={`/detalle/${element.id}`}>Detalles</Link>
-                    </Button>
                   </Card.Description>
                 </Card.Content>
               </Card>
             ))}
           </div>
-          <ItemCount stock={5} initial={1} onAdd={onAdd} />
+          {/* <ItemCount stock={5} initial={1} onAdd={onAdd} /> */}
         </>
       )}
     </>

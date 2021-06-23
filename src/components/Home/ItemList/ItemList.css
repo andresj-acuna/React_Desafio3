@@ -1,25 +1,22 @@
-.ui.container{
-  display: flex !important;
-  height: 500px;
-  align-items: center;
+.ui.inline.loader {
+  margin-top: 300px !important;
 }
 
 .card {
   display: flex;
   justify-content: space-evenly;
   margin: 0;
-  height: 400px;
-
+  /* height: 400px; */
 }
 
 .ui.card {
   margin: 30px !important;
-   cursor: pointer;
+  cursor: pointer;
+  height: 500px;
 }
 
 .ui.card .image {
-
-  height: 70% ;
+  height: 60%;
   background: #fff !important;
   display: flex !important;
 }
@@ -31,10 +28,25 @@
 
 .ui.card .content {
   height: 30%;
+  padding: 2em 1em !important;
 }
 
 .description {
   padding-top: 10px;
   font-size: 18px;
   font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+
+.ui.card .description p {
+  font-size: 17px;
+  margin-top: 10px !important;
+  margin-bottom: 20px !important;
+}
+
+.description .ui.teal.button {
+  margin: auto !important;
+  width: 50%;
+  padding: 0;
 }
