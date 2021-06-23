@@ -76,7 +76,6 @@ export const ItemDetailContainer = () => {
 
   return (
     <>
-
       {/* {dataShow.length === 0 ? (
         <Container className="container-loader">
           <Loader active inline="centered" size="large">
@@ -85,25 +84,23 @@ export const ItemDetailContainer = () => {
         </Container>
       ) : (
         <> */}
-          <div className="card">
-            {dataShow.map((element) => (
-              <Card key={element.id}>
-                <Image src={element.imageUrl} width="5" wrapped ui={false} />
-                <Card.Content>
-                  <Card.Header>{element.title}</Card.Header>
+      <div className="card">
+        {dataShow.map((element) => (
+          <Card key={element.id}>
+            <Image src={element.imageUrl} width="5" wrapped ui={false} />
+            <Card.Content>
+              <Card.Header>{element.title}</Card.Header>
 
-                  <Card.Description>
-                    <p>$ {element.price}</p>
-                  </Card.Description>
-                </Card.Content>
-              </Card>
-            ))}
-            <ItemCount stock={5} initial={1} onAdd={onAdd} />
-          </div>
-
-
-        </>
-      )}
+              <Card.Description>
+                <p>$ {element.price}</p>
+              </Card.Description>
+            </Card.Content>
+          </Card>
+        ))}
+      </div>
+      <ItemCount stock={5} initial={1} onAdd={onAdd} />
+    </>
+  );}
     // </>
   // );
 // };
