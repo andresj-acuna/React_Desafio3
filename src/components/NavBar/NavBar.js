@@ -10,9 +10,9 @@ export const NavBar = (props) => {
           <div className="header-content">
             <nav className="navbar">
               <div className="navbar-header">
-                <a className="navbar-brand" href="#Home">
+                <Link className="navbar-brand" to={"/"}>
                   Eindhoven
-                </a>
+                </Link>
               </div>
 
               <div className="menu-carrito">
@@ -21,13 +21,13 @@ export const NavBar = (props) => {
                     <Link to={"/"}>Home</Link>
                   </li>
                   <li>
-                    <a href="#Productos">Productos</a>
+                    <Link to={"/products"}>Productos</Link>
                   </li>
                   <li>
-                    <a href="#Acerca">Acerca</a>
+                    <Link to={"/about"}>Acerca</Link>
                   </li>
                   <li>
-                    <a href="#Contacto">Contacto</a>
+                    <Link to={"/contact"}>Contacto</Link>
                   </li>
                 </ul>
                 <CartWidget />

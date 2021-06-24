@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ItemCount } from "../Home/ItemCount/ItemCount";
-import { Card, Image } from "semantic-ui-react";
-
+import { ItemDetail } from "./ItemDetail/ItemDetail";
+// import { Card, Image } from "semantic-ui-react";
 
 // import { Link } from "react-router-dom";
 // import "../../ItemList/ItemList.css";
@@ -51,9 +51,8 @@ export const ItemDetailContainer = () => {
   const { productID } = useParams();
   console.log(productID);
   const onAdd = (cantidad) => {
-    console.log('Agregar al carrito', cantidad);
-  }
-
+    console.log("Agregar al carrito", cantidad);
+  };
 
   // const onAdd = (cantidad) => {
   //   console.log("Agregar al carrito", cantidad);
@@ -61,12 +60,10 @@ export const ItemDetailContainer = () => {
 
   const runItemDetailContainer = () => {
     myPromise().then((data) => {
-
-      const dataFilter = data.filter(element => element.id == productID);
+      const dataFilter = data.filter((element) => element.id == productID);
 
       setDataShow(dataFilter);
       console.log(dataFilter);
-
     });
   };
 
@@ -85,22 +82,12 @@ export const ItemDetailContainer = () => {
       ) : (
         <> */}
       <div className="card">
-        {dataShow.map((element) => (
-          <Card key={element.id}>
-            <Image src={element.imageUrl} width="5" wrapped ui={false} />
-            <Card.Content>
-              <Card.Header>{element.title}</Card.Header>
-
-              <Card.Description>
-                <p>$ {element.price}</p>
-              </Card.Description>
-            </Card.Content>
-          </Card>
-        ))}
+        <ItemDetail dataShow={dataShow} />
       </div>
       <ItemCount stock={5} initial={1} onAdd={onAdd} />
     </>
-  );}
-    // </>
-  // );
+  );
+};
+// </>
+// );
 // };
