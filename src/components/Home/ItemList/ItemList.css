@@ -3,15 +3,16 @@
 }
 
 .card {
-  display: flex;
+  display: flex !important;
   justify-content: space-evenly;
-  margin: 0;
+  margin: 50px;
+  /* flex-direction: column; */
   /* height: 400px; */
 }
 
 .ui.card {
-  margin: 30px !important;
-  cursor: pointer;
+  margin: auto !important;
+  /* cursor: pointer; */
   height: 500px;
 }
 
@@ -39,6 +40,10 @@
   flex-direction: column;
 }
 
+.description > a {
+  text-align: center;
+}
+
 .ui.card .description p {
   font-size: 17px;
   margin-top: 10px !important;
@@ -51,7 +56,8 @@
   padding: 0;
 }
 
-button a, button a:hover, button a:active {
+button a,
+button a:hover,
+button a:active {
   color: white;
 }
-

@@ -1,0 +1,59 @@
+.item-detail-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-detail-container h3 {
+  text-align: center;
+}
+
+.buttons-compra {
+  display: flex;
+
+  justify-content: center;
+  /* justify-content: space-evenly; */
+  /* margin: 20px; */
+}
+
+.buttons-compra .button-cancelar-container,
+.button-finalizar-container {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+}
+
+.buttons-compra .button-finalizar {
+  width: 100% !important;
+  height: 50px !important;
+  font-weight: bold !important;
+  color: #31d622 !important;
+  background-color: #fff !important;
+  border: 2px solid #31d622 !important;
+  border-radius: 30px !important;
+  /* margin-left: 100px !important; */
+  text-transform: uppercase !important;
+  font-family: sans-serif !important;
+
+  margin: 0 !important;
+  margin-top: 20px !important;
+  /* margin-right: 20px !important; */
+}
+
+.buttons-compra .button-cancelar {
+  width: 50% !important;
+  height: 50px !important;
+  font-weight: bold !important;
+  color: #c90e0e !important;
+  background-color: #fff !important;
+  border: 2px solid #c90e0e !important;
+  border-radius: 30px !important;
+  /* margin-left: 100px !important; */
+  text-transform: uppercase !important;
+  font-family: sans-serif !important;
+}
+
+.buttons-compra .button-finalizar:hover,
+.button-cancelar:hover {
+  background-color: rgba(245, 245, 245, 1) !important;
+  transition: all 0.4s !important;
+}

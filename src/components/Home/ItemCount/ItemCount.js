@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+
 import { Container } from "semantic-ui-react";
 import "./ItemCount.css";
 
 export const ItemCount = ({ stock, initial, onAdd }) => {
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(initial);
 
   let btnDel = false;
   let btnAdd = false;
@@ -42,9 +43,11 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
           </button>
         </div>
         <div className="center">
-          <button className="btn_Carrito" onClick={() => onAdd(initial)}>
+          {/* */}
+          <button className="btn_Carrito" onClick={() => onAdd(count)}>
             AGREGAR AL CARRITO
           </button>
+          {/* </Link> */}
         </div>
       </Container>
     </>

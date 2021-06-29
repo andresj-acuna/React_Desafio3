@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 // import { ItemCount } from "../ItemCount/ItemCount";
-import { Loader, Container} from "semantic-ui-react";
+import { Loader, Container } from "semantic-ui-react";
 import "./ItemList.css";
-import {Item} from "./Item/Item";
+import { Item } from "./Item/Item";
 
 const myPromise = () => {
   return new Promise((resolve, reject) => {
@@ -69,9 +69,8 @@ export const ItemList = () => {
       ) : (
         <>
           <div className="card">
-            <Item dataShow={dataShow}/>
+            <Item dataShow={dataShow} />
           </div>
-          {/* <ItemCount stock={5} initial={1} onAdd={onAdd} /> */}
         </>
       )}
     </>

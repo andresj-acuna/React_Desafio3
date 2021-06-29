@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { ItemCount } from "../Home/ItemCount/ItemCount";
+// import { ItemCount } from "../Home/ItemCount/ItemCount";
 import { ItemDetail } from "./ItemDetail/ItemDetail";
+import { Loader, Container } from "semantic-ui-react";
 // import { Card, Image } from "semantic-ui-react";
 
 // import { Link } from "react-router-dom";
@@ -50,9 +51,6 @@ export const ItemDetailContainer = () => {
   const [dataShow, setDataShow] = useState([]);
   const { productID } = useParams();
   console.log(productID);
-  const onAdd = (cantidad) => {
-    console.log("Agregar al carrito", cantidad);
-  };
 
   // const onAdd = (cantidad) => {
   //   console.log("Agregar al carrito", cantidad);
@@ -73,21 +71,17 @@ export const ItemDetailContainer = () => {
 
   return (
     <>
-      {/* {dataShow.length === 0 ? (
+      {dataShow.length === 0 ? (
         <Container className="container-loader">
           <Loader active inline="centered" size="large">
             Cargando el producto
           </Loader>
         </Container>
       ) : (
-        <> */}
-      <div className="card">
-        <ItemDetail dataShow={dataShow} />
-      </div>
-      <ItemCount stock={5} initial={1} onAdd={onAdd} />
+        <>
+          <ItemDetail dataShow={dataShow} />
+        </>
+      )}
     </>
   );
 };
-// </>
-// );
-// };

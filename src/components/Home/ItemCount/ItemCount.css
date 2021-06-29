@@ -1,6 +1,6 @@
 .ui.container {
   flex-direction: column;
-  margin-top: 50px;
+  margin: 20px;
 }
 
 .center {
@@ -35,7 +35,7 @@ button:disabled {
 }
 
 .btn_Carrito {
-  width: 16%;
+  width: 17%;
   height: 50px;
   font-weight: bold;
   color: #000;
