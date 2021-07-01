@@ -44,14 +44,14 @@ const myPromise = () => {
 };
 
 export const ItemList = () => {
-  const [dataShow, setDataShow] = useState([]);
+  const [item, setItem] = useState([]);
 
   // const onAdd = (cantidad) => {
   //   console.log("Agregar al carrito", cantidad);
   // };
 
   const runItemList = () => {
-    myPromise().then(setDataShow);
+    myPromise().then(setItem);
   };
 
   useEffect(() => {
@@ -60,18 +60,16 @@ export const ItemList = () => {
 
   return (
     <>
-      {dataShow.length === 0 ? (
+      {item.length === 0 ? (
         <Container className="container-loader">
           <Loader active inline="centered" size="large">
             Cargando
           </Loader>
         </Container>
       ) : (
-        <>
-          <div className="card">
-            <Item dataShow={dataShow} />
-          </div>
-        </>
+        <div className="card">
+          <Item item={item} />
+        </div>
       )}
     </>
   );

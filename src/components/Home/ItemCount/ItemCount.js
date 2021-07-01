@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
 import { Container } from "semantic-ui-react";
+
 import "./ItemCount.css";
 
-export const ItemCount = ({ stock, initial, onAdd }) => {
-  const [count, setCount] = useState(initial);
+export const ItemCount = ({ stock, initial, item, addCart }) => {
+  const [count, setCount] = useState(parseInt(initial));
 
   let btnDel = false;
   let btnAdd = false;
@@ -29,27 +30,25 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
   }
 
   return (
-    <>
-      <Container>
-        <div className="center">
-          <button disabled={btnDel} onClick={delOneItem}>
-            -
-          </button>
-          <div>
-            <p>{count}</p>
-          </div>
-          <button disabled={btnAdd} onClick={addOneItem}>
-            +
-          </button>
+    <Container>
+      <div className="center">
+        <button disabled={btnDel} onClick={delOneItem}>
+          -
+        </button>
+        <div>
+          <p>{count}</p>
         </div>
-        <div className="center">
-          {/* */}
-          <button className="btn_Carrito" onClick={() => onAdd(count)}>
-            AGREGAR AL CARRITO
-          </button>
-          {/* </Link> */}
-        </div>
-      </Container>
-    </>
+        <button disabled={btnAdd} onClick={addOneItem}>
+          +
+        </button>
+      </div>
+      <div className="center">
+        {/* */}
+        <button className="btn_Carrito" onClick={() => addCart(count, item)}>
+          AGREGAR AL CARRITO
+        </button>
+        {/* </Link> */}
+      </div>
+    </Container>
   );
 };

@@ -3,12 +3,6 @@ import React from "react";
 import { ItemList } from "./ItemList/ItemList";
 // import { Container } from "semantic-ui-react";
 
-
 export const Home = () => {
-
-
-  return <>
-
-        <ItemList />;
-         </>
+  return <ItemList />;
 };

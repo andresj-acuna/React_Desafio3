@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 // import { ItemCount } from "../Home/ItemCount/ItemCount";
 import { ItemDetail } from "./ItemDetail/ItemDetail";
 import { Loader, Container } from "semantic-ui-react";
+
 // import { Card, Image } from "semantic-ui-react";
 
 // import { Link } from "react-router-dom";
@@ -48,9 +49,10 @@ const myPromise = () => {
 };
 
 export const ItemDetailContainer = () => {
-  const [dataShow, setDataShow] = useState([]);
+  const [item, setItem] = useState([]);
   const { productID } = useParams();
-  console.log(productID);
+
+  // console.log(productID);
 
   // const onAdd = (cantidad) => {
   //   console.log("Agregar al carrito", cantidad);
@@ -60,8 +62,8 @@ export const ItemDetailContainer = () => {
     myPromise().then((data) => {
       const dataFilter = data.filter((element) => element.id == productID);
 
-      setDataShow(dataFilter);
-      console.log(dataFilter);
+      setItem(dataFilter);
+      // console.log(dataFilter);
     });
   };
 
@@ -71,16 +73,14 @@ export const ItemDetailContainer = () => {
 
   return (
     <>
-      {dataShow.length === 0 ? (
+      {item.length === 0 ? (
         <Container className="container-loader">
           <Loader active inline="centered" size="large">
             Cargando el producto
           </Loader>
         </Container>
       ) : (
-        <>
-          <ItemDetail dataShow={dataShow} />
-        </>
+        <ItemDetail item={item} />
       )}
     </>
   );

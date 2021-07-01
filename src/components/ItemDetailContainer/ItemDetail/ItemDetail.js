@@ -1,26 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { ItemCount } from "../../Home/ItemCount/ItemCount";
 import { Card, Image, Container, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../../Context/CartContext";
 import "./ItemDetail.css";
 
-export const ItemDetail = ({ dataShow }) => {
-  const onAdd = (cantidad) => {
-    console.log("Agregar al carrito", cantidad);
+export const ItemDetail = ({ item }) => {
+  const [show, setShow] = useState(true);
+  const [initial, setInitial] = useState(1);
+  const myContext = useContext(CartContext);
+
+  const addCart = (count, item) => {
     setShow(!show);
-    setInitial(cantidad);
+    setInitial(count);
+    myContext.addItem({ item, quantity: count });
   };
 
   const showCount = () => {
     setShow(!show);
   };
 
-  const [show, setShow] = useState(true);
-  const [initial, setInitial] = useState(1);
-
   return (
     <>
-      {dataShow.map((element) => (
+      {item.map((element) => (
         <Container className="itemDetail" key={element.id}>
           <Card>
             <Image src={element.imageUrl} width="5" wrapped ui={false} />
@@ -36,7 +38,12 @@ export const ItemDetail = ({ dataShow }) => {
       ))}
       {show ? (
         <Container>
-          <ItemCount stock={5} initial={initial} onAdd={onAdd} />
+          <ItemCount
+            stock={5}
+            initial={initial}
+            item={item}
+            addCart={addCart}
+          />
         </Container>
       ) : (
         <Container>

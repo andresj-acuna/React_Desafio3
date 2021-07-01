@@ -2,12 +2,12 @@ import React from "react";
 import { Card, Image, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
-export const Item = ({ dataShow }) => {
-  console.log(dataShow);
+export const Item = ({ item }) => {
+  // console.log(item);
 
   return (
     <>
-      {dataShow.map((data) => (
+      {item.map((data) => (
         <Card key={data.id}>
           <Image src={data.imageUrl} width="5" wrapped ui={false} />
           <Card.Content>
