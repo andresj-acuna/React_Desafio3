@@ -1,8 +1,8 @@
 import React from "react";
 // import { ItemCount } from "./ItemCount/ItemCount";
-import { ItemList } from "./ItemList/ItemList";
+import { ItemListContainer } from "./ItemListContainer/ItemListContainer";
 // import { Container } from "semantic-ui-react";
 
 export const Home = () => {
-  return <ItemList />;
+  return <ItemListContainer />;
 };

@@ -3,7 +3,7 @@ import { Card, Image, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 export const Item = ({ item }) => {
-  // console.log(item);
+  console.log(item);
 
   return (
     <>

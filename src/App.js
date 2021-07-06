@@ -1,10 +1,10 @@
 import React from "react";
-import { NavBar } from "./components/NavBar/NavBar";
+import { NavBar } from "./components/Home/NavBar/NavBar";
 import { Home } from "./components/Home/Home";
 import { Products } from "./views/Products";
 import { About } from "./views/About";
 import { Contact } from "./views/Contact";
-import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
+import { ItemDetailContainer } from "./components/Home/ItemDetailContainer/ItemDetailContainer";
 import { Cart } from "./components/Cart/Cart";
 import { CartProvider } from "./Context/CartContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";

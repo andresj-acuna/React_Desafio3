@@ -1,27 +1,98 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
-export const CartContext = createContext({});
+export const CartContext = createContext([{}]);
 
-export const CartProvider = ({ defaultValue = [], children }) => {
-  const [cart, setCart] = useState(defaultValue);
-
-  const addItem = (newItem, quantity) => {
-    let productIndex = [];
-    productIndex = cart.findIndex(
-      (product) => newItem.item.id === product.item.item.id,
-    );
-    if (productIndex === -1) {
-      setCart((cart) => [...cart, { newItem, quantity }]);
+export const CartProvider = ({ children }) => {
+  const itemsInLocal = () => {
+    if (localStorage.getItem("cart") !== null) {
+      return JSON.parse(localStorage.getItem("cart"));
     } else {
-      let updateCart = [...cart];
-      updateCart[productIndex].item.quantity += newItem.quantity;
-      setCart(updateCart);
+      return [];
     }
-    console.log(cart);
   };
 
+  const [cart, setCart] = useState(itemsInLocal);
+  const [items, setItems] = useState(0);
+  const [total, setTotal] = useState(0);
+
+  const addToCart = (obj) => {
+    // Primero busco si ya existe dentro del array del state Cart un objeto que tenga
+    // el mismo nombre que el que quiero agregar al carrito, si no existe ahi si lo agrego.
+    const duplicate = cart.find((product) => product.item === obj.item);
+
+    if (duplicate !== undefined) {
+      const indexOfDuplicate = cart.findIndex(
+        (product) => product.item === obj.item,
+      );
+
+      cart.splice(indexOfDuplicate, 1, {
+        item: obj.item,
+        quantity: obj.quantity + duplicate.quantity,
+        price: obj.price,
+        imageUrl: obj.imageUrl,
+        id: obj.id,
+        stock: obj.stock,
+      });
+    } else {
+      setCart([
+        ...cart,
+        {
+          item: obj.item,
+          quantity: obj.quantity,
+          price: obj.price,
+          imageUrl: obj.imageUrl,
+          id: obj.id,
+          stock: obj.stock,
+        },
+      ]);
+    }
+  };
+
+  const isInCart = (itemName) => {
+    const isIn = cart.find((product) => product.item === itemName);
+
+    return isIn;
+  };
+
+  const updateItems = () => {
+    let total = cart.reduce((acc, item) => acc + item.quantity, 0);
+    setItems(total);
+  };
+
+  const getTotal = () => {
+    const sumalize = cart.reduce(
+      (acc, prod) => acc + prod.price * prod.quantity,
+      0,
+    );
+    setTotal(sumalize);
+  };
+
+  const deleteItem = (itemName) => {
+    const editedItems = cart.filter((product) => product.item !== itemName);
+    setCart(editedItems);
+    localStorage.setItem("cart", JSON.stringify(editedItems));
+  };
+
+  useEffect(() => {
+    updateItems();
+    localStorage.setItem("cart", JSON.stringify(cart));
+    console.log(cart);
+    getTotal();
+  });
+
   return (
-    <CartContext.Provider value={{ cart, setCart, addItem }}>
+    <CartContext.Provider
+      value={{
+        addToCart,
+        isInCart,
+        cart,
+        items,
+        updateItems,
+        total,
+        deleteItem,
+        itemsInLocal,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

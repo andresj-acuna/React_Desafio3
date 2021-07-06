@@ -1,19 +1,30 @@
 import React, { useState, useContext } from "react";
-import { ItemCount } from "../../Home/ItemCount/ItemCount";
-import { Card, Image, Container, Button } from "semantic-ui-react";
+import { ItemCount } from "../../ItemCount/ItemCount";
+import { ProductCard } from "./Card/ProductCard";
+import { Container, Button } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../../Context/CartContext";
+import { CartContext } from "../../../../Context/CartContext";
 import "./ItemDetail.css";
 
 export const ItemDetail = ({ item }) => {
   const [show, setShow] = useState(true);
   const [initial, setInitial] = useState(1);
+
   const myContext = useContext(CartContext);
 
   const addCart = (count, item) => {
+    myContext.addToCart({
+      item: item.title,
+      quantity: count,
+      price: item.price,
+      imageUrl: item.imageUrl,
+      id: item.id,
+      stock: item.stock,
+    });
+
     setShow(!show);
     setInitial(count);
-    myContext.addItem({ item, quantity: count });
+    myContext.updateItems();
   };
 
   const showCount = () => {
@@ -22,24 +33,14 @@ export const ItemDetail = ({ item }) => {
 
   return (
     <>
-      {item.map((element) => (
-        <Container className="itemDetail" key={element.id}>
-          <Card>
-            <Image src={element.imageUrl} width="5" wrapped ui={false} />
-            <Card.Content>
-              <Card.Header>{element.title}</Card.Header>
+      <Container className="itemDetail" key={item.id}>
+        <ProductCard item={item} />
+      </Container>
 
-              <Card.Description>
-                <p>$ {element.price}</p>
-              </Card.Description>
-            </Card.Content>
-          </Card>
-        </Container>
-      ))}
       {show ? (
         <Container>
           <ItemCount
-            stock={5}
+            stock={item.stock}
             initial={initial}
             item={item}
             addCart={addCart}
@@ -57,7 +58,9 @@ export const ItemDetail = ({ item }) => {
               </div>
               <div className="button-finalizar-container">
                 <Link to={"/cart"}>
-                  <Button className="button-finalizar">Finalizar Compra</Button>
+                  <Button className="button-finalizar" item={item}>
+                    Finalizar Compra
+                  </Button>
                 </Link>
               </div>
             </div>
