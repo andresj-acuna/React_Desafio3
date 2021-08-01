@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
-import { Container } from "semantic-ui-react";
+import { Container, Button } from "semantic-ui-react";
+
+import {Link} from 'react-router-dom'
 
 import "./ItemCount.css";
 
@@ -9,6 +11,7 @@ export const ItemCount = ({ stock, initial, item, addCart }) => {
 
   let btnDel = false;
   let btnAdd = false;
+  let btnStock = false;
 
   const delOneItem = (e) => {
     count > 1
@@ -21,6 +24,13 @@ export const ItemCount = ({ stock, initial, item, addCart }) => {
     count < stock ? setCount(count + 1) : console.log("Ha superado el stock");
   };
 
+
+
+  if (stock === 0) {
+    btnStock= true;
+
+  }
+
   if (count === 1) {
     btnDel = true;
   }
@@ -31,23 +41,46 @@ export const ItemCount = ({ stock, initial, item, addCart }) => {
 
   return (
     <Container>
-      <div className="center">
-        <button disabled={btnDel} onClick={delOneItem}>
+      <div className="buttons-container">
+        {/* <button disabled={btnDel} onClick={delOneItem}>
           -
+        </button> */}
+        <div className='all-buttons'>
+        <button disabled={btnDel} onClick={delOneItem} className='minus-button'>
+          <i className='minus icon'></i>
         </button>
-        <div>
+
+        {stock === 0 ? <div><p>0</p></div> :  <div>
           <p>{count}</p>
-        </div>
-        <button disabled={btnAdd} onClick={addOneItem}>
-          +
-        </button>
+        </div>}
+
+        {stock === 0 ? <button disabled={btnStock} className='plus-button'>
+          <i className='plus icon'></i>
+        </button> :
+
+        <button disabled={btnAdd} onClick={addOneItem} className='plus-button'>
+          <i className='plus icon'></i>
+        </button>}
       </div>
-      <div className="center">
-        {/* */}
-        <button className="btn_Carrito" onClick={() => addCart(count, item)}>
-          AGREGAR AL CARRITO
-        </button>
-        {/* </Link> */}
+
+      </div>
+      <div className='cart-button'>
+      {/* */}
+
+      {stock === 0 ? <Button color='teal' disabled={btnStock} className="btn_Carrito" onClick={() => addCart(count, item)}>
+<div className='center-btn-cart'>
+ <i className='shopping cart icon'><span>Agregar</span></i>
+ </div>
+</Button> : <Link to={"/cart"}>
+
+<Button color='teal' disabled={btnStock} className="btn_Carrito" onClick={() => addCart(count, item)}>
+<div className='center-btn-cart'>
+ <i className='shopping cart icon'><span>Agregar</span></i>
+ </div>
+</Button>
+
+</Link> }
+
       </div>
     </Container>
   );

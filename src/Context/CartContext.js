@@ -1,11 +1,19 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from 'react';
 
 export const CartContext = createContext([{}]);
 
 export const CartProvider = ({ children }) => {
   const itemsInLocal = () => {
-    if (localStorage.getItem("cart") !== null) {
-      return JSON.parse(localStorage.getItem("cart"));
+    if (localStorage.getItem('cart') !== null) {
+      return JSON.parse(localStorage.getItem('cart'));
+    } else {
+      return [];
+    }
+  };
+
+  const ordersInLocal = () => {
+    if (localStorage.getItem('my-orders') !== null) {
+      return JSON.parse(localStorage.getItem('my-orders'));
     } else {
       return [];
     }
@@ -14,6 +22,15 @@ export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(itemsInLocal);
   const [items, setItems] = useState(0);
   const [total, setTotal] = useState(0);
+  const [orderIds, setOrderIds] = useState(ordersInLocal);
+
+  useEffect(() => {
+    updateItems();
+    localStorage.setItem('cart', JSON.stringify(cart));
+    console.log(cart);
+    localStorage.setItem('my-orders', JSON.stringify(orderIds));
+    getTotal();
+  });
 
   const addToCart = (obj) => {
     // Primero busco si ya existe dentro del array del state Cart un objeto que tenga
@@ -70,15 +87,10 @@ export const CartProvider = ({ children }) => {
   const deleteItem = (itemName) => {
     const editedItems = cart.filter((product) => product.item !== itemName);
     setCart(editedItems);
-    localStorage.setItem("cart", JSON.stringify(editedItems));
+    localStorage.setItem('cart', JSON.stringify(editedItems));
   };
 
-  useEffect(() => {
-    updateItems();
-    localStorage.setItem("cart", JSON.stringify(cart));
-    console.log(cart);
-    getTotal();
-  });
+
 
   return (
     <CartContext.Provider
@@ -86,11 +98,15 @@ export const CartProvider = ({ children }) => {
         addToCart,
         isInCart,
         cart,
+        setCart,
         items,
         updateItems,
         total,
         deleteItem,
+        orderIds,
+        setOrderIds,
         itemsInLocal,
+        ordersInLocal,
       }}
     >
       {children}

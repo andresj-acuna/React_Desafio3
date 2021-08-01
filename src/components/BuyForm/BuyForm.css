@@ -1,0 +1,163 @@
+.buy-form-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  width: 100%;
+  height: auto;
+  min-height: 90vh;
+  padding: 5vh;
+}
+
+.buy-form-container .form-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: auto;
+  width: 100%;
+  max-width: 420px;
+  min-height: 520px;
+  background-color: #1f2226;
+  -webkit-box-shadow: 0px 0px 8px 3px #1ee2e7;
+  box-shadow: 0px 0px 8px 3px #1ee2e7;
+  border-radius: 5px;
+  padding: 10px 0;
+}
+
+.buy-form-container .form-container .input-field {
+  width: 85%;
+  margin: 15px;
+}
+
+.buy-form-container .form-container .input-field input {
+  color: #000;
+  border-radius: 5px;
+  height: 30px;
+}
+
+.buy-form-container .form-container .input-field label {
+  color: #ffffff;
+  margin-left: 10px;
+}
+
+.buy-form-container
+  .form-container
+  .input-field
+  input[type='text']:focus
+  + label {
+  color: #1ee2e7;
+}
+
+.buy-form-container
+  .form-container
+  .input-field
+  input[type='tel']:focus
+  + label {
+  color: #1ee2e7;
+}
+
+.buy-form-container
+  .form-container
+  .input-field
+  input[type='email']:focus
+  + label {
+  color: #1ee2e7;
+}
+
+.buy-form-container .form-container .input-field input[type='text']:focus,
+.buy-form-container .form-container .input-field input[type='tel']:focus,
+.buy-form-container .form-container .input-field input[type='email']:focus {
+  border-bottom: 1px solid #1ee2e7;
+  -webkit-box-shadow: 0 1px 0 0 #1f2226;
+  box-shadow: 0 1px 0 0 #1f2226;
+  outline: none;
+}
+
+.buy-form-container .form-container .input-field input[type='text'].valid,
+.buy-form-container .form-container .input-field input[type='tel'].valid,
+.buy-form-container .form-container .input-field input[type='email'].valid {
+  border-bottom: 1px solid #1ee2e7;
+  -webkit-box-shadow: 0 1px 0 0 #1f2226;
+  box-shadow: 0 1px 0 0 #1f2226;
+}
+
+.buy-form-container .form-container .input-field input[type='text'].invalid,
+.buy-form-container .form-container .input-field input[type='tel'].invalid,
+.buy-form-container .form-container .input-field input[type='email'].invalid {
+  border-bottom: 1px solid red;
+  -webkit-box-shadow: 0 1px 0 0 #1f2226;
+  box-shadow: 0 1px 0 0 #1f2226;
+}
+
+.buy-form-container .form-container .input-field .prefix {
+  color: #7a7a7a;
+}
+
+.buy-form-container .form-container .input-field .prefix.active {
+  color: #1ee2e7;
+}
+
+.buy-form-container .form-container .input-field small {
+  color: red;
+  display: block;
+  margin-left: 30px;
+}
+
+.buy-form-container .form-container .total-amount {
+  width: 80%;
+  color: #ffffff;
+  text-align: center;
+}
+
+.buy-form-container .form-container span {
+  background-color: #1ee2e7;
+  width: 70%;
+  height: 3px;
+  border-radius: 1.5px;
+}
+
+.buy-form-container .form-container .btn-buy,
+.buy-form-container .form-container .btn-getOrder {
+  color: #373f47;
+  font-weight: 600;
+  background-color: #1ee2e7;
+  width: 80%;
+  margin-top: 10%;
+}
+
+.buy-form-container .form-container .btn-buy .loop,
+.buy-form-container .form-container .btn-getOrder .loop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: auto;
+  color: #1f2226;
+  -webkit-animation: loop 1s ease-in-out infinite alternate;
+  animation: loop 1s ease-in-out infinite alternate;
+}
+
+.user.icon, .phone.icon, .mail.icon {
+  color: white;
+  font-size: 20px;
+}

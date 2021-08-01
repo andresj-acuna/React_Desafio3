@@ -3,47 +3,115 @@
   margin: 20px;
 }
 
-.center {
+.buttons-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+
+
+}
+
+.all-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.all-buttons div p {
+  font-size: 20px;
+  /* padding-right: 20px; */
+  width: 35px;
 }
 
 p {
   font-size: 25px;
+  font-family: 'Gilroy-medium';
+  font-weight:600;
 }
 
 button {
-  width: 30px;
-  height: 30px;
-  margin: 20px !important;
+  /* width: 30px;
+  height: 30px; */
+  width: 35px;
+  height: 35px;
+  /* margin: 20px !important; */
   border-radius: 200px;
   border: none;
-  color: #fff;
-  background-color: #17a455;
+  /* color: #fff; */
+  /* background-color: #17a455; */
   outline: none;
 }
 
-button:hover {
-  background-color: rgba(23, 164, 85, 0.8);
-  cursor: pointer;
+.minus-button {
+  margin-right: 20px;
 }
 
-button:disabled {
+.plus-button {
+  /* margin-left: 20px; */
+}
+
+.cart-button {
+  margin-top: 30px;
+}
+
+button:hover {
+  /* background-color: rgba(23, 164, 85, 0.8); */
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+/* button:disabled {
   color: #fff;
   background-color: gray;
   cursor: default;
+} */
+
+button:disabled {
+  background: #fff;
+  font-size: 14px;
 }
 
 .btn_Carrito {
-  width: 17%;
-  height: 50px;
+  /* width: 17%; */
+  width: 131px;
+  height: 40px;
   font-weight: bold;
   color: #000;
   background-color: #fff;
   border: 2px solid #000;
 }
 
+.center-btn-cart {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.center-btn-cart span {
+  font-family: 'Gilroy-light';
+  font-size: 16px !important;
+  margin-left: 10px;
+
+}
+
 .btn_Carrito:hover {
-  background-color: rgba(245, 245, 245, 1);
+  /* background-color: rgba(245, 245, 245, 1); */
+  color: #fff;
   transition: all 0.4s;
+}
+
+.ui.teal.button:hover, .ui.teal.buttons .button:hover {
+  background-color: #00b5ad !important;
+  opacity: 0.9;
+}
+
+.btn_Carrito:disabled:hover {
+  background-color: gray;
+}
+
+button .i.icon {
+  font-size: 20px;
+
+}
+
+.all-buttons .plus-button i.icon, .minus-button i.icon {
+  margin: 0 !important;
 }

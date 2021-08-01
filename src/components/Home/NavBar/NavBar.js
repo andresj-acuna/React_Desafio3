@@ -3,6 +3,11 @@ import { CartWidget } from "../../Cart/CartWidget/CartWidget";
 import { Link } from "react-router-dom";
 
 export const NavBar = (props) => {
+  const cellphones = 'cellphones';
+  const tv = 'tv';
+  const videogames = 'videogames'
+
+
   return (
     <>
       <div className="header">
@@ -21,13 +26,13 @@ export const NavBar = (props) => {
                     <Link to={"/"}>Home</Link>
                   </li>
                   <li>
-                    <Link to={"/products"}>Productos</Link>
+                    <Link to={"/categories/" + cellphones}>Celulares</Link>
                   </li>
                   <li>
-                    <Link to={"/about"}>Acerca</Link>
+                    <Link to={"/categories/" + tv}>Televisores</Link>
                   </li>
                   <li>
-                    <Link to={"/contact"}>Contacto</Link>
+                    <Link to={"/categories/" + videogames}>Gaming</Link>
                   </li>
                 </ul>
                 <CartWidget />

@@ -7,66 +7,93 @@ import { CartContext } from "../../../../Context/CartContext";
 import "./ItemDetail.css";
 
 export const ItemDetail = ({ item }) => {
-  const [show, setShow] = useState(true);
-  const [initial, setInitial] = useState(1);
+  // const [show, setShow] = useState(true);
 
-  const myContext = useContext(CartContext);
 
-  const addCart = (count, item) => {
-    myContext.addToCart({
-      item: item.title,
-      quantity: count,
-      price: item.price,
-      imageUrl: item.imageUrl,
-      id: item.id,
-      stock: item.stock,
-    });
 
-    setShow(!show);
-    setInitial(count);
-    myContext.updateItems();
-  };
 
-  const showCount = () => {
-    setShow(!show);
-  };
+  // const [initial, setInitial] = useState(1);
+
+  // const myContext = useContext(CartContext);
+
+  // const addCart = (count, item) => {
+  //   myContext.addToCart({
+  //     item: item.title,
+  //     quantity: count,
+  //     price: item.price,
+  //     imageUrl: item.imageUrl,
+  //     id: item.id,
+  //     stock: item.stock,
+  //   });
+
+    // setShow(!show);
+  //   setInitial(count);
+  //   myContext.updateItems();
+  // };
+
+  // const showCount = () => {
+  //   setShow(!show);
+  // };
 
   return (
     <>
+    <Container className='item-detail-container'>
       <Container className="itemDetail" key={item.id}>
-        <ProductCard item={item} />
+      <div className="wrapper">
+
+
+        {/* {show ? (
+            <Container>
+              <ProductCard item={item}>
+              <ItemCount
+                  stock={item.stock}
+                  initial={initial}
+                  item={item}
+                  addCart={addCart}
+                />
+              </ProductCard >
+
+            </Container>
+          ) : (
+            <Container>
+              <div className="item-detail-container">
+
+                <h3>Cantidad: {initial}</h3>
+                <div className="buttons-compra">
+                  <div className="button-cancelar-container">
+                    <Button className="button-cancelar" onClick={() => showCount()}>
+                      Cancelar
+                    </Button>
+                  </div>
+                  <div className="button-finalizar-container">
+                    <Link to={"/cart"}>
+                      <Button className="button-finalizar" item={item}>
+                        Finalizar Compra
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+                </div>
+
+            </Container>
+          )} */}
+
+          <Container>
+            <ProductCard item={item}>
+
+            </ProductCard >
+            {/* <ItemCount
+              stock={item.stock}
+              initial={initial}
+              item={item}
+              addCart={addCart}
+            /> */}
+          </Container>
+        </div>
+      </Container>
       </Container>
 
-      {show ? (
-        <Container>
-          <ItemCount
-            stock={item.stock}
-            initial={initial}
-            item={item}
-            addCart={addCart}
-          />
-        </Container>
-      ) : (
-        <Container>
-          <div className="item-detail-container">
-            <h3>Cantidad: {initial}</h3>
-            <div className="buttons-compra">
-              <div className="button-cancelar-container">
-                <Button className="button-cancelar" onClick={() => showCount()}>
-                  Cancelar
-                </Button>
-              </div>
-              <div className="button-finalizar-container">
-                <Link to={"/cart"}>
-                  <Button className="button-finalizar" item={item}>
-                    Finalizar Compra
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </Container>
-      )}
+
     </>
   );
 };

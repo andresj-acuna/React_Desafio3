@@ -4,6 +4,11 @@ import { Link } from "react-router-dom";
 
 export const Item = ({ item }) => {
   console.log(item);
+  const formatPeso = new Intl.NumberFormat('es-AR', {
+    style: 'currency',
+    currency: 'ARS',
+    minimumFractionDigits: 2
+  })
 
   return (
     <>
@@ -14,7 +19,7 @@ export const Item = ({ item }) => {
             <Card.Header>{data.title}</Card.Header>
 
             <Card.Description>
-              <p>$ {data.price}</p>
+              <p>{formatPeso.format(data.price)}</p>
 
               <Link to={`/detalle/${data.id}`}>
                 <Button color="teal">Detalles</Button>

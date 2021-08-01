@@ -33,8 +33,13 @@
   font-style: normal;
 }
 
+
+
 body {
   overflow-x: hidden;
+  background: #f1f1f1 !important;
+
+
 }
 
 a,
@@ -55,6 +60,9 @@ a:active,
 a.active {
   color: #17d0d5;
 }
+
+
+
 
 .center {
   display: flex;
@@ -137,22 +145,25 @@ a.active {
 
 .menu li a {
   text-transform: uppercase;
-  font-family: Gilroy-regular;
+  /* font-family: Gilroy-regular; */
+  font-family: 'system-ui';
   font-size: 16px;
   letter-spacing: 1px;
-  color: #fff;
+  color: #c9c9c9;
   padding: 10px 10px;
   text-decoration: none;
   -webkit-transition: all 0.8s;
   -moz-transition: all 0.8s;
   transition: all 0.8s;
+  font-weight: 500;
 }
 
 .menu li a:hover,
 .menu li a:focus {
-  outline: 0;
-  background-color: #1ee2e7;
-  border-radius: 3px;
+  /* outline: 0; */
+  /* background-color: #1ee2e7; */
+  /* border-radius: 3px; */
+  color: #1ee2e7;
 }
 
 .menu-carrito {
