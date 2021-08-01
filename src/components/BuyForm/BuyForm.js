@@ -39,6 +39,12 @@ export const BuyForm = () => {
 
   const [newId, setNewId] = useState();
 
+  const formatPeso = new Intl.NumberFormat('es-AR', {
+    style: 'currency',
+    currency: 'ARS',
+    minimumFractionDigits: 2
+  })
+
   // const cartLocal = setCart(itemsInLocal);
   // console.log(cartLocal);
 
@@ -116,7 +122,10 @@ export const BuyForm = () => {
   };
 
   return (
+
+
     <div className='buy-form-container'>
+    <h1>Formulario de Compra</h1>
       <form onSubmit={handleSubmit(handleOrder)} className='form-container'>
         <div className='input-field'>
           {/* <i className='material-icons prefix'>account_circle</i> */}
@@ -234,7 +243,7 @@ export const BuyForm = () => {
         </div>
         {/* Fin de input innecesario :D */}
 
-        <h5 className='total-amount'>Subtotal &nbsp; ${total}</h5>
+        <h5 className='total-amount'>Subtotal: &nbsp; {formatPeso.format(total)}</h5>
         <span></span>
         {error && <p>{error}</p>}
 
@@ -252,7 +261,9 @@ export const BuyForm = () => {
         }
       </form>
     </div>
+
   );
+
 };
 
 // {confirmEmail !== email}

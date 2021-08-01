@@ -22,7 +22,7 @@ export const Item = ({ item }) => {
               <p>{formatPeso.format(data.price)}</p>
 
               <Link to={`/detalle/${data.id}`}>
-                <Button color="teal">Detalles</Button>
+                <Button color="teal"><span>Detalles</span></Button>
               </Link>
             </Card.Description>
           </Card.Content>

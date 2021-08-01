@@ -54,7 +54,8 @@ export const MyOrders = () => {
         <h3 className='title'>Mis compras</h3>
 
         <button
-          className='waves-effect  waves-light btn'
+
+          className='btn-clear'
           onClick={() => {
             localStorage.removeItem('my-orders');
             setOrderIds([]);
@@ -86,7 +87,7 @@ export const MyOrders = () => {
                   <ul>
                     {items &&
                       items.map((item) => (
-                        <li className='truncate' key={item.id}>
+                        <li key={item.id}>
                           {' '}
                           {item.qty} x {item.item}{' '}
                         </li>

@@ -1,3 +1,12 @@
+
+
+.ui.table {
+  width: 90% !important ;
+  margin: 40px auto !important;
+}
+
+
+
 .ui.table td .btnFinalizarCompra {
   width: 40%;
   height: 50px;
@@ -21,17 +30,27 @@
   text-align: center;
 }
 
-.ui.fixed.table td,
-.ui.fixed.table th {
-  text-align: center;
+.ui.table tr:first-child td {
+  width: 150px;
+  padding-left: 20px;
 }
 
-.ui.fixed.table th {
-  font-size: 18px;
+.ui.table td,
+.ui.table th {
+  text-align: center !important;
 }
 
-.ui.fixed.table td {
+.ui.table th {
+  font-size: 18px !important;
+  background: #110 !important;
+  color: #00c5aa !important;
+  opacity: .95 !important;
+}
+
+.ui.table td {
   font-size: 16px;
+  font-family: 'Lato', 'sans-serif';
+ font-weight: 600;
 }
 
 /* .ui.table thead tr .quantity {
@@ -39,19 +58,11 @@
 } */
 
 .ui.table tbody tr td {
-  height: 150px;
+  height: 120px;
   margin: auto;
 }
 
-.ui.table tbody tr td {
-  height: 150px;
-  margin: auto;
-}
 
-.ui.table tbody tr td {
-  height: 150px;
-  /* margin: auto; */
-}
 
 .ui.table tbody tr td .product-table {
   display: flex;
@@ -62,6 +73,17 @@
 .ui.table tbody tr td p {
   font-size: 16px;
   margin-left: 20px;
+}
+
+
+.ui.table tr td h3 {
+  font-family: 'Gilroy-medium';
+}
+
+.ui.table tr td h3 span {
+  font-family: 'Lato';
+  color: #000;
+  font-size: 18px;
 }
 
 .cart-container {
@@ -99,4 +121,46 @@
 .button-regresar:hover {
   background-color: rgba(245, 245, 245, 1) !important;
   transition: all 0.4s !important;
+}
+
+.ui.teal.button {
+
+  width: 131px;
+  height: 35px;
+
+  border-radius: 200px;
+  border: none;
+
+  outline: none;
+  font-family: 'Gilroy-medium';
+  font-weight: 100;
+
+}
+
+.ui.teal.button span {
+  font-size: 16px !important;
+}
+
+
+.center-btn-cart {
+  display: flex;
+  justify-content: flex-start;
+
+}
+
+.center-btn-cart span {
+  font-family: 'Gilroy-light';
+  font-size: 16px !important;
+  margin-left: 10px;
+
+}
+
+button .i.icon {
+  font-size: 20px;
+
+}
+
+.ui.teal.button:hover, .ui.teal.buttons .button:hover {
+  background-color: #00b5ad !important;
+  opacity: 0.9;
 }

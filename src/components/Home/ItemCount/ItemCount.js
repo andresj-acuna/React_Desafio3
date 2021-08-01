@@ -31,6 +31,10 @@ export const ItemCount = ({ stock, initial, item, addCart }) => {
 
   }
 
+  if (stock < 0) {
+    btnStock = true;
+  }
+
   if (count === 1) {
     btnDel = true;
   }
@@ -50,7 +54,7 @@ export const ItemCount = ({ stock, initial, item, addCart }) => {
           <i className='minus icon'></i>
         </button>
 
-        {stock === 0 ? <div><p>0</p></div> :  <div>
+        {stock === 0 || stock < 0 ?  <div><p>0</p></div> :  <div>
           <p>{count}</p>
         </div>}
 
@@ -67,7 +71,9 @@ export const ItemCount = ({ stock, initial, item, addCart }) => {
       <div className='cart-button'>
       {/* */}
 
-      {stock === 0 ? <Button color='teal' disabled={btnStock} className="btn_Carrito" onClick={() => addCart(count, item)}>
+
+
+      {stock === 0 || stock < 0 ? <Button color='teal' disabled={btnStock} className="btn_Carrito" onClick={() => addCart(count, item)}>
 <div className='center-btn-cart'>
  <i className='shopping cart icon'><span>Agregar</span></i>
  </div>
@@ -80,6 +86,7 @@ export const ItemCount = ({ stock, initial, item, addCart }) => {
 </Button>
 
 </Link> }
+
 
       </div>
     </Container>

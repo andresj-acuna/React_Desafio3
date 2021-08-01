@@ -15,10 +15,12 @@ export const Cart = ({ item }) => {
 
   console.log(formatPeso.format(10000))
 
+
   return (
-    <>
+
+    <div className="cart-container">
       {cart.length > 0 ? (
-        <Table fixed>
+        <Table unstackable>
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell>Producto</Table.HeaderCell>
@@ -59,6 +61,7 @@ export const Cart = ({ item }) => {
             </>
           ))}
 
+          <Table.Row>
           <Table.Cell></Table.Cell>
           <Table.Cell></Table.Cell>
           <Table.Cell></Table.Cell>
@@ -66,13 +69,20 @@ export const Cart = ({ item }) => {
             {/* <h3>Subtotal: ${total},00</h3> */}
 
 
-            <h3> Subtotal: {formatPeso.format(total)}</h3>
+            <h3> Subtotal: <span>{formatPeso.format(total)}</span></h3>
           </Table.Cell>
           <Table.Cell>
-            <Link to='/order'>
-              <Button className='btnFinalizarCompra'>FINALIZAR COMPRA</Button>
-            </Link>
+          <Link to={"/order"}>
+
+<Button color='teal'>
+<div className='center-btn-cart'>
+ <i className='shopping cart icon'><span>Agregar</span></i>
+ </div>
+</Button>
+
+</Link>
           </Table.Cell>
+          </Table.Row>
         </Table>
       ) : (
         <div className='cart-container'>
@@ -82,6 +92,7 @@ export const Cart = ({ item }) => {
           </Link>
         </div>
       )}
-    </>
+      </div>
+
   );
 };
